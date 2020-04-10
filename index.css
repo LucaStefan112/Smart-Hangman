@@ -44,19 +44,19 @@
 	background-image: url("media/PlayButton/playButtonHover.png");
 }
 
-#screenPrint{
-	margin-top: 200px;
-	margin-bottom: 100px;
-	position: center;
-	font-size: 40px;
-}
-
 #keyButton{
 	font-size: 30px;
 	width: 50px;
 	height: 50px;
 	background: none;
 	border-radius: 50%;
+}
+
+#screenPrint{
+	margin-top: 200px;
+	margin-bottom: 100px;
+	position: center;
+	font-size: 40px;
 }
 
 #endMessage{
@@ -97,6 +97,12 @@
 }
 
 @media(max-width: 450px){
+
+	#title{
+		margin-top: 0px;
+		font-size: 70px;
+		text-decoration: underline;
+	}
 
 	#mainBody{
 		display: flex;
@@ -144,5 +150,19 @@
 		height: 20px;
 		background: none;
 		border-radius: 50%;
+	}
+
+	#endMessage{
+		padding: 0px;
+		margin: 0px;
+		font-size: 30px;
+	}
+
+	#endText{
+		padding: 0px;
+		margin: 0px;
+		font-size: 20px;
+		animation-name: endfade;
+		animation-duration: 4s;
 	}
 }
