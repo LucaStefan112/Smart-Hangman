@@ -1,21 +1,32 @@
 const populationNumber = 10000;
-let generations = 0;
-let population = [];
-let totalFitness = 0;
+let generations;
+let population;
+let totalFitness;
 const mutationRate = 0.1;
-let matingPool = [];
-let found = false;
-let individualParagraphs = [];
-let generationsCount = document.createElement('h1');
-description.appendChild(generationsCount);
-let bestIndividualsDiv = document.createElement('div');
-bestIndividualsDiv.id = 'bestIndividualsDiv';
-description.appendChild(bestIndividualsDiv);
-let procentage = document.createElement('h1'), procentageNumber = 0;
-description.appendChild(procentage);
+let matingPool;
+let found;
+let individualParagraphs;
+let generationsCount;
+let bestIndividualsDiv;
+let procentage, procentageNumber;
 const characters = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM!@#$% ^&*()1234567890-_=+[{]}|;:",<.>/?';
 
 function startComputerGuess(){
+	generations = 0;
+	population = [];
+	totalFitness = 0;
+	matingPool = [];
+	found = false;
+	individualParagraphs = [];
+	generationsCount = document.createElement('h1');
+	description.appendChild(generationsCount);
+	bestIndividualsDiv = document.createElement('div');
+	bestIndividualsDiv.id = 'bestIndividualsDiv';
+	description.appendChild(bestIndividualsDiv);
+	procentage = document.createElement('h1');
+	procentageNumber = 0;
+	description.appendChild(procentage);
+
 	for(let i = 0; i < 15; i++){
 		individualParagraphs[i] = document.createElement('h1');
 		individualParagraphs[i].id = 'individualParagraph';
@@ -125,7 +136,7 @@ function checkStatus(){
 
 	procentage.textContent = 'Guessed: '+procentageNumber + '%';
 
-	if(generations < 15){
+	if(generations < 10){
 		individualParagraphs[generations].textContent = bestIndividualInGeneration.word;
 
 		if(bestIndividualInGeneration.word == word)
@@ -133,16 +144,25 @@ function checkStatus(){
 	}
 
 	else{
-		for(let i = 0; i < 14; i++)
+		for(let i = 0; i < 9; i++)
 			individualParagraphs[i].textContent = individualParagraphs[i + 1].textContent;
-		individualParagraphs[14].textContent = bestIndividualInGeneration.word;
+		individualParagraphs[9].textContent = bestIndividualInGeneration.word;
 
 		if(bestIndividualInGeneration.word == word)
-			individualParagraphs[14].style.color = 'green';
+			individualParagraphs[9].style.color = 'green';
 	}
 
-	if(bestIndividualInGeneration.word == word)
+	if(bestIndividualInGeneration.word == word){
 		found = true;
+		startAgain();
+	}
+}
+
+function startAgain(){
+	let againButton = document.createElement('button');
+	againButton.id = 'playButton';
+	againButton.addEventListener('click', function(){location.reload();});
+	description.appendChild(againButton);
 }
 
 function computerGuess(){
@@ -150,8 +170,10 @@ function computerGuess(){
 	while(totalFitness == 0)
 		createPopulation();
 
-	createMatingPool();
-	newPopulation();
+	if(!found){
+		createMatingPool();
+		newPopulation();
+	}
 	
 	if(!found)
 		window.requestAnimationFrame(computerGuess);
