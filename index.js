@@ -31,7 +31,6 @@ function gameOver(win){
 	let endMessage = document.createElement('h1');
 	endMessage.id = 'endMessage';
 	description.appendChild(endMessage);
-	screenPrint.style.margin = '200px 0px 0px 0px';
 
 	if(win){
 		endMessage.textContent = 'You won.'
