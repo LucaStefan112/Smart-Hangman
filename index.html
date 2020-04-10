@@ -1,0 +1,26 @@
+<!DOCTYPE html>	
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="Tamas Luca-Stefan">
+		<meta  name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="index.css">
+		<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
+		<title>Smart Hangman</title>
+	</head>
+	
+	<body>
+		<h1 id = 'title' align="center">Smart Hangman</h1>
+		<div id="mainBody" align="center">
+			<img id="paperSheet">
+			<div id="description">
+				<p id="text"><u>Description:</u><br>This is a simple Hangman game with the original rules, using words generated randomly and accesed trough an API. The smart part about the game is that after your attempt of winning, there will be a genetic algorithm that will try to guess the word.<br><u>A genetic algorithm</u> applies the laws of real genetics trying to create more and more efficient genes in order to solve the given problem. It transmits information from generation to generation, through a process, which in the medical world is called meiosis, sometimes suffering mutations to increase diversity.</p>
+				<button id="playButton" onclick="if(typeof word == 'string')startGame();"></button>
+			</div>
+		</div>
+	</body>
+
+	<script src="genetic.js"></script>
+	<script src="p5.js"></script>
+	<script type="text/javascript" src="index.js"></script>
+</html>
