@@ -1,4 +1,4 @@
-const populationNumber = 10000;
+const populationNumber = 5000;
 let generations;
 let population;
 let totalFitness;
