@@ -1,4 +1,4 @@
-const populationNumber = 2500;
+let populationNumber;
 let generations;
 let population;
 let totalFitness;
@@ -12,6 +12,7 @@ let procentage, procentageNumber;
 const characters = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM!@#$% ^&*()1234567890-_=+[{]}|;:",<.>/?';
 
 function startComputerGuess(){
+	populationNumber = map(word.length, 5, 15, 2500, 5000);
 	generations = 0;
 	population = [];
 	totalFitness = 0;
