@@ -27,7 +27,8 @@ function preload(){
 }
 
 function setup(){
-	word = word[0];
+	//Also commented because of the API:
+	//word = word[0];
 }
 
 function gameOver(win){
