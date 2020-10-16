@@ -25,6 +25,7 @@
 
 #description{
 	width: 50%;
+
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -36,11 +37,9 @@
 	background: none;
 	border: none;
 	background: url("media/PlayButton/playButton.png");
-    	background-size: cover;
-    	margin-top: 50px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+    background-size: cover;
+   	margin-top: 50px;
+   	margin-left: 30%;
 }
 
 #playButton:hover{
